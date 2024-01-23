@@ -56,4 +56,9 @@ void printcheck(int *array, int r1, int r2);
 void split(int *array, int *buff, int min, int max, int size);
 void merge_sort(int *array, size_t size);
 
+/* Task 8. Heap sort (Advanced) */
+void swap(int *array, int a, int b);
+void heapify(int *array, size_t size, int i);
+void heap_sort(int *array, size_t size);
+
 #endif /* SORT_H */
