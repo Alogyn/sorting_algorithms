@@ -50,8 +50,10 @@ void swap_nodes(listint_t **node, listint_t **list);
 void counting_sort(int *array, size_t size);
 
 /* Task 7. Merge sort (Advanced) */
-void merge(int *array, size_t l, size_t m, size_t r);
-void merge_sort_recursive(int *array, size_t l, size_t r);
+void copy(int *src, int *dst, int size);
+void merge(int *array, int *buff, int minL, int maxL, int minR, int maxR);
+void printcheck(int *array, int r1, int r2);
+void split(int *array, int *buff, int min, int max, int size);
 void merge_sort(int *array, size_t size);
 
 #endif /* SORT_H */
