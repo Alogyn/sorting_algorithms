@@ -1,5 +1,7 @@
 #include "sort.h"
 
+/* Task 7. Merge sort (Advanced) */
+
 /**
   * copy - copies data from one buffer to another
   *
