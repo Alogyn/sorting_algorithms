@@ -1,5 +1,4 @@
 #include "sort.h"
-#include <stdio.h>
 
 /* Task 0. Bubble sort */
 
