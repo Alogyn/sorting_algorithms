@@ -49,4 +49,9 @@ void swap_nodes(listint_t **node, listint_t **list);
 /* Task 6. Counting sort (Advanced) */
 void counting_sort(int *array, size_t size);
 
+/* Task 7. Merge sort (Advanced) */
+void merge(int *array, size_t l, size_t m, size_t r);
+void merge_sort_recursive(int *array, size_t l, size_t r);
+void merge_sort(int *array, size_t size);
+
 #endif /* SORT_H */
