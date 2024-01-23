@@ -3,39 +3,6 @@
 /* Task 5. Cocktail shaker sort (Advanced) */
 
 /**
-  * _swap - Swaps two nodes of a doubly linked list
-  *
-  * @node: Node to be swapped
-  * @list: Double pointer to the head of the list
-  *
-  * Return: None
-  */
-void _swap(listint_t **node, listint_t **list)
-{
-	listint_t *tmp = *node, *tmp2, *tmp3;
-
-	if (!(*node)->prev)
-		*list = (*node)->next;
-
-	tmp = tmp3 = *node;
-	tmp2 = tmp->next;
-
-	tmp->next = tmp2->next;
-	tmp3 = tmp->prev;
-	tmp->prev = tmp2;
-	tmp2->next = tmp;
-	tmp2->prev = tmp3;
-
-	if (tmp2->prev)
-		tmp2->prev->next = tmp2;
-
-	if (tmp->next)
-		tmp->next->prev = tmp;
-
-	*node = tmp2;
-}
-
-/**
   * cocktail_sort_list - Sorts a doubly linked list of integers
   * in ascending order using the Cocktail shaker sort algorithm.
   *
@@ -61,7 +28,7 @@ void cocktail_sort_list(listint_t **list)
 			if (head->n > head->next->n)
 			{
 				aux = head;
-				_swap(&aux, list);
+				swap_nodes(&aux, list);
 				print_list(*list);
 				head = aux;
 			}
@@ -78,7 +45,7 @@ void cocktail_sort_list(listint_t **list)
 			if (head->n < head->prev->n)
 			{
 				aux = head->prev;
-				_swap(&aux, list);
+				swap_nodes(&aux, list);
 				print_list(*list);
 				head = aux->next;
 			}
@@ -86,4 +53,37 @@ void cocktail_sort_list(listint_t **list)
 			head = head->prev;
 		}
 	}
+}
+
+/**
+  * swap_nodes - Swaps two nodes of a doubly linked list
+  *
+  * @node: Node to be swapped
+  * @list: Double pointer to the head of the list
+  *
+  * Return: None
+  */
+void swap_nodes(listint_t **node, listint_t **list)
+{
+	listint_t *tmp = *node, *tmp2, *tmp3;
+
+	if (!(*node)->prev)
+		*list = (*node)->next;
+
+	tmp = tmp3 = *node;
+	tmp2 = tmp->next;
+
+	tmp->next = tmp2->next;
+	tmp3 = tmp->prev;
+	tmp->prev = tmp2;
+	tmp2->next = tmp;
+	tmp2->prev = tmp3;
+
+	if (tmp2->prev)
+		tmp2->prev->next = tmp2;
+
+	if (tmp->next)
+		tmp->next->prev = tmp;
+
+	*node = tmp2;
 }
