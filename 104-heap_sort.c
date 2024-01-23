@@ -1,7 +1,5 @@
 #include "sort.h"
 
-/* Task 8. Heap sort (Advanced) */
-
 /**
   * check_tree - Sift-down operation to maintain the max-heap property
   *
@@ -20,19 +18,15 @@ void check_tree(int *array, size_t size_init, size_t size, size_t i)
 
 	br1 = i * 2 + 1;
 	br2 = br1 + 1;
-	/* Ensure both branches are within the current heap size */
-	if (br1 < size)
-		branch1 = array[br1];
-	else
-		branch1 = array[i];
-	if (br2 < size)
-		branch2 = array[br2];
-	else
-		branch2 = array[i];
-	/* Swap with the larger branch if needed */
-	if ((br1 < size) && (br2 < size) &&
-		((branch1 >= branch2 && branch1 > array[i]) ||
-		(br1 == size - 1 && branch1 > array[i])))
+
+	/* Retrieve values of left and right branches */
+	branch1 = (br1 < size) ? array[br1] : array[i];
+	branch2 = (br2 < size) ? array[br2] : array[i];
+
+	/* Swap with the larger branch if necessary */
+	if (((br1 < size) && (br2 < size) &&
+		(branch1 >= branch2 && branch1 > array[i]))
+		|| ((br1 == size - 1) && branch1 > array[i]))
 	{
 		n = array[i];
 		array[i] = branch1;
@@ -40,14 +34,15 @@ void check_tree(int *array, size_t size_init, size_t size, size_t i)
 		print_array(array, size_init);
 	}
 	else if ((br1 < size) && (br2 < size) &&
-			(branch2 > branch1 && branch2 > array[i]))
+		(branch2 > branch1 && branch2 > array[i]))
 	{
 		n = array[i];
 		array[i] = branch2;
 		array[br2] = n;
 		print_array(array, size_init);
 	}
-	/* Recursively check the branches */
+
+	/* Recursively check the left and right branches */
 	if (br1 < size - 1)
 		check_tree(array, size_init, size, br1);
 	if (br2 < size - 1)
@@ -63,7 +58,6 @@ void check_tree(int *array, size_t size_init, size_t size, size_t i)
   *
   * Return: None
   */
-
 void heap_sort(int *array, size_t size)
 {
 	size_t i, size_init = size;
