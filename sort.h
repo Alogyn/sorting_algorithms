@@ -57,8 +57,12 @@ void split(int *array, int *buff, int min, int max, int size);
 void merge_sort(int *array, size_t size);
 
 /* Task 8. Heap sort (Advanced) */
-void swap(int *array, int a, int b);
-void heapify(int *array, size_t size, int i);
 void heap_sort(int *array, size_t size);
+void check_tree(int *array, size_t size_init, size_t size, size_t i);
+
+/* Task 9. Radix sort (Advanced) */
+void radix_sort(int *array, size_t size);
+int getMax(int *array, size_t size);
+void countingSort(int *array, size_t size, int exp);
 
 #endif /* SORT_H */
