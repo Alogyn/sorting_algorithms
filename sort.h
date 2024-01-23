@@ -43,6 +43,6 @@ void shell_sort(int *array, size_t size);
 
 /* Task 5. Cocktail shaker sort (Advanced) */
 void cocktail_sort_list(listint_t **list);
-void swap_codes(listint_t **node, listint_t **list)
+void swap_codes(listint_t **node, listint_t **list);
 
 #endif /* SORT_H */
