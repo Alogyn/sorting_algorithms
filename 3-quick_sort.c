@@ -29,7 +29,7 @@ void quick_sort(int *array, size_t size)
   * Return: None
   */
 
-void quick_sort_recursive(int *array, int low, int high, size_t size)
+void quick_sort_recursive(int *array, size_t low, size_t high, size_t size)
 {
 	size_t partition_index;
 
@@ -54,7 +54,7 @@ void quick_sort_recursive(int *array, int low, int high, size_t size)
   * Return: The index of the pivot element after partitioning
   */
 
-int lomuto_partition(int *array, int low, int high, size_t size)
+int lomuto_partition(int *array, size_t low, size_t high, size_t size)
 {
 	size_t k, i;
 	int pivot;
