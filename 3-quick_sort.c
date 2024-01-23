@@ -14,10 +14,8 @@
 
 void quick_sort(int *array, size_t size)
 {
-	if (array == NULL || size < 2)
-		return;
-
-	quick_sort_recursive(array, 0, size - 1, size);
+	if (array != NULL)
+		quick_sort_recursive(array, 0, size - 1, size);
 }
 
 /**
@@ -33,12 +31,15 @@ void quick_sort(int *array, size_t size)
 
 void quick_sort_recursive(int *array, int low, int high, size_t size)
 {
+	size_t partition_index;
+
 	if (low < high)
 	{
-		int partition_index = lomuto_partition(array, low, high, size);
-
-		quick_sort_recursive(array, low, partition_index - 1, size);
-		quick_sort_recursive(array, partition_index + 1, high, size);
+		partition_index = lomuto_partition(array, low, high, size);
+		if (partition_index > 0)
+			quick_sort_recursive(array, low, partition_index - 1, size);
+		if (partition_index < high)
+			quick_sort_recursive(array, partition_index + 1, high, size);
 	}
 }
 
@@ -55,28 +56,55 @@ void quick_sort_recursive(int *array, int low, int high, size_t size)
 
 int lomuto_partition(int *array, int low, int high, size_t size)
 {
-	int pivot, temp;
-	int i, j;
+	size_t k, i;
+	int pivot;
+
+	if ((low >= high) || (array == NULL))
+		return (high);
 
 	pivot = array[high];
-	i = low - 1;
+	k = low;
 
-	for (j = low; j <= high - 1; j++)
+	for (i = low; i < high; i++)
 	{
-		if (array[j] < pivot)
+		if (array[i] <= pivot)
 		{
-			i++;
-			temp = array[i];
-			array[i] = array[j];
-			array[j] = temp;
-			print_array(array, size);
+			if (k != i)
+			{
+				swap_items(array, k, i);
+				print_array(array, size);
+			}
+			k++;
 		}
 	}
 
-	temp = array[i + 1];
-	array[i + 1] = array[high];
-	array[high] = temp;
-	print_array(array, size);
+	if (k != high)
+	{
+		swap_items(array, k, high);
+		print_array(array, size);
+	}
 
-	return (i + 1);
+	return (k);
+}
+
+/**
+  * swap_items - Swaps two items in an array
+  *
+  * @array: The array to modify
+  * @l: The index of the left item
+  * @r: The index of the right item
+  *
+  * Return: None
+  */
+
+void swap_items(int *array, size_t l, size_t r)
+{
+	int tmp;
+
+	if (array != NULL)
+	{
+		tmp = array[l];
+		array[l] = array[r];
+		array[r] = tmp;
+	}
 }
