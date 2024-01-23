@@ -22,8 +22,8 @@ void quick_sort(int *array, size_t size)
 
 /**
   * quick_sort_recursive - Recursive function for quick sort
-  * @array: The array to be sorted
   *
+  * @array: The array to be sorted
   * @low: The starting index of the partition to be sorted
   * @high: The ending index of the partition to be sorted
   * @size: Number of elements in the array
@@ -33,11 +33,10 @@ void quick_sort(int *array, size_t size)
 
 void quick_sort_recursive(int *array, int low, int high, size_t size)
 {
-	int partition_index;
-
 	if (low < high)
 	{
-		partition_index = lomuto_partition(array, low, high, size);
+		int partition_index = lomuto_partition(array, low, high, size);
+
 		quick_sort_recursive(array, low, partition_index - 1, size);
 		quick_sort_recursive(array, partition_index + 1, high, size);
 	}
