@@ -41,4 +41,8 @@ void swap_items(int *array, size_t l, size_t r);
 /* Task 4. Shell sort - Knuth Sequence (Advanced) */
 void shell_sort(int *array, size_t size);
 
+/* Task 5. Cocktail shaker sort (Advanced) */
+void cocktail_sort_list(listint_t **list);
+void swap_nodes(listint_t *node1, listint_t *node2, listint_t **list);
+
 #endif /* SORT_H */
