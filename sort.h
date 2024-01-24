@@ -73,5 +73,8 @@ void bitonicsort(int arr[], int low, int nelement, int order, int size);
 
 /* Task 11. Quick Sort - Hoare Partition scheme (Advanced) */
 void quick_sort_hoare(int *array, size_t size);
+void swapss(int *array, ssize_t item1, ssize_t item2);
+int hoare_partition(int *array, int first, int last, int size);
+void qs(int *array, ssize_t first, ssize_t last, int size);
 
 #endif /* SORT_H */
