@@ -71,4 +71,7 @@ void swap(int arr[], int item1, int item2, int order);
 void merges(int arr[], int low, int nelement, int order);
 void bitonicsort(int arr[], int low, int nelement, int order, int size);
 
+/* Task 11. Quick Sort - Hoare Partition scheme (Advanced) */
+void quick_sort_hoare(int *array, size_t size);
+
 #endif /* SORT_H */
