@@ -45,8 +45,8 @@ void merges(int arr[], int low, int nelement, int order)
 		mid = nelement / 2;
 		for (i = low; i < low + mid; i++)
 			swap(arr, i, i + mid, order);
-		merge(arr, low, mid, order);
-		merge(arr, low + mid, mid, order);
+		merges(arr, low, mid, order);
+		merges(arr, low + mid, mid, order);
 	}
 }
 
