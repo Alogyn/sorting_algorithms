@@ -68,7 +68,7 @@ void countingSort(int *array, size_t size, int exp);
 /* Task 10. Bitonic sort (Advanced) */
 void bitonic_sort(int *array, size_t size);
 void swap(int arr[], int item1, int item2, int order);
-void merge(int arr[], int low, int nelement, int order);
+void merges(int arr[], int low, int nelement, int order);
 void bitonicsort(int arr[], int low, int nelement, int order, int size);
 
 #endif /* SORT_H */

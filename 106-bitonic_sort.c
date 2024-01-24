@@ -26,7 +26,7 @@ void swap(int arr[], int item1, int item2, int order)
 }
 
 /**
-  * merge - Recursively sort bitonic sequences in both orders
+  * merges - Recursively sort bitonic sequences in both orders
   *
   * @arr: The array
   * @low: Index of the first element
@@ -36,7 +36,7 @@ void swap(int arr[], int item1, int item2, int order)
   * Return: None
   */
 
-void merge(int arr[], int low, int nelement, int order)
+void merges(int arr[], int low, int nelement, int order)
 {
 	int mid, i;
 
@@ -78,7 +78,7 @@ void bitonicsort(int arr[], int low, int nelement, int order, int size)
 		mid = nelement / 2;
 		bitonicsort(arr, low, mid, 1, size);
 		bitonicsort(arr, low + mid, mid, 0, size);
-		merge(arr, low, nelement, order);
+		merges(arr, low, nelement, order);
 
 		if (order <= 0)
 			printf("Result [%i/%i] (DOWN):\n", nelement, size);
