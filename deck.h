@@ -43,8 +43,6 @@ typedef struct deck_node_s
 
 /* Task 12. Dealer (Advanced) */
 void sort_deck(deck_node_t **deck);
-void print_deck(const deck_node_t *deck);
-deck_node_t *init_deck(const card_t cards[52]);
 int compare_cards(const void *card1, const void *card2);
 
 #endif /* DECK_H */
