@@ -1,5 +1,7 @@
 #include "sort.h"
 
+/* Task 8. Heap sort (Advanced) */
+
 /**
   * check_tree - Sift-down operation to maintain the max-heap property
   *
