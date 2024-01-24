@@ -65,4 +65,7 @@ void radix_sort(int *array, size_t size);
 int getMax(int *array, size_t size);
 void countingSort(int *array, size_t size, int exp);
 
+/* Task */
+void bitonic_sort(int *array, size_t size);
+
 #endif /* SORT_H */
